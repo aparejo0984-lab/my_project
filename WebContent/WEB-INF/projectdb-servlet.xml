@@ -15,8 +15,9 @@
     <context:component-scan base-package="com.checkout.controller" />
     <context:component-scan base-package="com.customer.controller" />
 	<context:component-scan base-package="com.project.db" />
+	<context:component-scan base-package="com.product.controller" />
+	<context:component-scan base-package="com.security.controller" />
 	<context:component-scan base-package="com.shop.controller" />
-	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />

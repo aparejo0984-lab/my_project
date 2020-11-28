@@ -12,7 +12,7 @@
         <div class="container">
           <div class="row bar mb-0">
             <div id="customer-orders" class="col-md-9">
-              <p class="text-muted lead">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+              <p class="text-muted lead">Product List:</p>
               <div class="box mt-0 mb-lg-0">
                 <div class="table-responsive">
                   <table class="table table-hover">

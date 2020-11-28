@@ -21,19 +21,19 @@
             <h4 class="h6">Blog</h4>
             <ul class="list-unstyled footer-blog-list">
                <li class="d-flex align-items-center">
-                  <div class="image"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></div>
+                  <div class="image"><img src="<c:url value="/resources/img/product/detail-square1.png" />" alt="..." class="img-fluid"></div>
                   <div class="text">
                      <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
                   </div>
                </li>
                <li class="d-flex align-items-center">
-                  <div class="image"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></div>
+                  <div class="image"><img src="<c:url value="/resources/img/product/detail-square2.png" />" alt="..." class="img-fluid"></div>
                   <div class="text">
                      <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
                   </div>
                </li>
                <li class="d-flex align-items-center">
-                  <div class="image"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></div>
+                  <div class="image"><img src="<c:url value="/resources/img/product/detail-square1.png" />" alt="..." class="img-fluid"></div>
                   <div class="text">
                      <h5 class="mb-0"> <a href="post.html">Very very long blog post name</a></h5>
                   </div>
@@ -43,18 +43,18 @@
          </div>
          <div class="col-lg-3">
             <h4 class="h6">Contact</h4>
-            <p class="text-uppercase"><strong>Universal Ltd.</strong><br>13/25 New Avenue <br>Newtown upon River <br>45Y 73J <br>England <br><strong>Great Britain</strong></p>
-            <a href="contact.html" class="btn btn-template-main">Go to contact page</a>
+            <p class="text-uppercase"><strong>J&G Company</strong><br>766 Plaridel St<br>Cambaro <br>Mandaue 6014 <br>Cebu <br><strong>Philippines</strong></p>
+            <a href="<%=request.getContextPath()%>/shop-review" class="btn btn-template-main">Go to contact page</a>
             <hr class="d-block d-lg-none">
          </div>
          <div class="col-lg-3">
             <ul class="list-inline photo-stream">
-               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></a></li>
-               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></a></li>
-               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></a></li>
-               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></a></li>
-               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></a></li>
-               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="..." class="img-fluid"></a></li>
+               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/product/detail-square1.png" />" alt="..." class="img-fluid"></a></li>
+               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/product/detail-square2.png" />" alt="..." class="img-fluid"></a></li>
+               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/product/detail-square1.png" />" alt="..." class="img-fluid"></a></li>
+               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/product/detail-square2.png" />" alt="..." class="img-fluid"></a></li>
+               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/product/detail-square1.png" />" alt="..." class="img-fluid"></a></li>
+               <li class="list-inline-item"><a href="#"><img src="<c:url value="/resources/img/product/detail-square2.png" />" alt="..." class="img-fluid"></a></li>
             </ul>
          </div>
       </div>
@@ -63,11 +63,7 @@
       <div class="container">
          <div class="row">
             <div class="col-lg-4 text-center-md">
-               <p>&copy; 2020. Your company / name goes here</p>
-            </div>
-            <div class="col-lg-8 text-right text-center-md">
-               <p>Template design by <a href="https://bootstrapious.com/snippets">Bootstrapious </a>&  <a href="https://fity.cz/">Fity</a></p>
-               <!-- Please do not remove the backlink to us unless you purchase the Attribution-free License at https://bootstrapious.com/donate. Thank you. -->
+               <p>&copy; 2020. J&G Company</p>
             </div>
          </div>
       </div>

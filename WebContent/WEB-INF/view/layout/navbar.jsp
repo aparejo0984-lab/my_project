@@ -4,22 +4,22 @@
       <div class="container">
          <a href="index.html" class="navbar-brand home">
             <img src="
-            <c:url value="/resources/img/product/logo.jpg" />
-            " alt="Universal logo" class="d-none d-md-inline-block" width="300" height="200"><img src="
-            <c:url value="/resources/img/logo-small.png" />
-            " alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">Universal - go to homepage</span>
+            <c:url value="/resources/img/product/logo-company.png" />
+            " alt="Universal logo" class="d-none d-md-inline-block"><img src="
+            <c:url value="/resources/img/product/logo-company.png" />
+            " alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">J&G - go to homepage</span>
          </a>
          <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
          <div id="navigation" class="navbar-collapse collapse">
             <ul class="nav navbar-nav ml-auto">
-               <li class="nav-item dropdown active">
-                  <a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Home <b class="caret"></b></a>
+               <li class="nav-item">
+                  <a href="<%=request.getContextPath() + "/shop" %>"  class="nav-link" >Home <b class="caret"></b></a>
                </li>
-               <li class="nav-item dropdown menu-large">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">Features<b class="caret"></b></a>
+               <li class="nav-item">
+                  <a href="<%=request.getContextPath() + "/shop" %>" class="nav-link" >Products<b class="caret"></b></a>
                </li>
-               <li class="nav-item dropdown menu-large">
-                  <a href="#" data-toggle="dropdown" class="dropdown-toggle">Portfolio <b class="caret"></b></a>
+               <li class="nav-item">
+                  <a href="<%=request.getContextPath() + "/shop-review" %>" class="nav-link" >Reviews <b class="caret"></b></a>
                </li>
             </ul>
          </div>
@@ -38,15 +38,9 @@
 <div id="heading-breadcrumbs">
    <div class="container">
       <div class="row d-flex align-items-center flex-wrap">
-         <div class="col-md-7">
-            <h1 class="h2">Category with right sidebar</h1>
-         </div>
-         <div class="col-md-5">
-            <ul class="breadcrumb d-flex justify-content-end">
-               <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-               <li class="breadcrumb-item active">Category with right sidebar</li>
-            </ul>
-         </div>
+            <img src="
+            <c:url value="/resources/img/product/banner-final1.png" />
+            " alt="J&G Company" class="d-none d-md-inline-block" />
       </div>
    </div>
 </div>

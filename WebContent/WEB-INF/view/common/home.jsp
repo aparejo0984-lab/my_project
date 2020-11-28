@@ -39,6 +39,9 @@
                   </div>
                 </div>
               </div>
+              <div class="row">
+                <div class="col-md-12 banner mb-small"><a href="#"><img src="<c:url value="/resources/img/product/banner-final.jpg" />" alt="" class="img-fluid"></a></div>
+              </div>
             </div>
           </div>
         </div>

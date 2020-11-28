@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Shop</title>
+    <title>J&G Company</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
@@ -26,7 +26,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="<c:url value="/resources/css/custom.css" />">
     <!-- Favicon and apple touch icons-->
-    <link rel="shortcut icon" href="<c:url value="/resources/img/favicon.ico" />" type="image/x-icon">
+    <link rel="shortcut icon" href="<c:url value="/resources/img/product/favicon.ico" />" type="image/x-icon">
     <link rel="apple-touch-icon" href="<c:url value="/resources/img/apple-touch-icon.png" />">
     <link rel="apple-touch-icon" sizes="57x57" href="<c:url value="/resources/img/apple-touch-icon-57x57.png" />">
     <link rel="apple-touch-icon" sizes="72x72" href="<c:url value="/resources/img/apple-touch-icon-72x72.png" />">

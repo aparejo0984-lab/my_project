@@ -13,13 +13,13 @@
           <div class="row">
             <div id="checkout" class="col-lg-9">
               <div class="box">
-                <form method="get" action="shop-checkout4.html">
-                  <ul class="nav nav-pills nav-fill">
-                    <li class="nav-item"><a href="shop-checkout1.html" class="nav-link"> <i class="fa fa-map-marker"></i><br>Address</a></li>
-                    <li class="nav-item"><a href="shop-checkout2.html" class="nav-link"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
-                    <li class="nav-item"><a href="shop-checkout3.html" class="nav-link"><i class="fa fa-money"></i><br>Payment Method</a></li>
-                    <li class="nav-item"><a href="shop-checkout4.html" class="nav-link active"><i class="fa fa-eye"></i><br>Order Review</a></li>
-                  </ul>
+                <form method="get" action="<%=request.getContextPath()%>/user/checkout-review">
+				<ul class="nav nav-pills nav-fill">
+				   <li class="nav-item"><a href="<%=request.getContextPath()%>/checkout-address" class="nav-link"> <i class="fa fa-map-marker"></i><br>Address</a></li>
+				   <li class="nav-item"><a href="<%=request.getContextPath()%>/checkout-delivery" class="nav-link"><i class="fa fa-truck"></i><br>Delivery Method</a></li>
+				   <li class="nav-item"><a href="<%=request.getContextPath()%>/checkout-payment" class="nav-link"><i class="fa fa-money"></i><br>Payment Method</a></li>
+				   <li class="nav-item"><a href="<%=request.getContextPath()%>/checkout-review" class="nav-link active"><i class="fa fa-eye"></i><br>Order Review</a></li>
+				</ul> %>
                 </form>
                 <div class="content">
                   <div class="table-responsive">
