@@ -32,6 +32,9 @@
 	<bean id="personJDBC" class="com.project.db.jdbc.PersonJDBC">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	<bean id="productJDBC" class="com.project.db.jdbc.ProductJDBC">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 	<mvc:resources location="/resources/**" mapping="/resources/**"></mvc:resources>
 	<mvc:annotation-driven />
 </beans>

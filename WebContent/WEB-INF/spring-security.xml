@@ -25,7 +25,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<security:authentication-provider>
 		<security:jdbc-user-service 
 			data-source-ref="dataSource"
-			users-by-username-query="select username, password from user where username =?"
+			users-by-username-query="select username, password, 'true' from user where username =?"
 			authorities-by-username-query="select username, access_level from user where username =?"/>
 	</security:authentication-provider>
 </security:authentication-manager>
