@@ -17,7 +17,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<security:intercept-url pattern="/user/*" access="ROLE_USER, ROLE_ADMIN" />
 	<security:intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
 	<security:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-	<security:form-login login-page="/login" default-target-url="/shop" authentication-failure-url="/loginError"/>
+	<security:form-login login-page="/login" default-target-url="/user/account" authentication-failure-url="/loginError"/>
  	<security:logout invalidate-session="true" logout-url="/user/j_spring_security_logout" logout-success-url="/" delete-cookies="JSESSIONID"/>
 </security:http>
 
@@ -25,7 +25,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 	<security:authentication-provider>
 		<security:jdbc-user-service 
 			data-source-ref="dataSource"
-			users-by-username-query="select username, password, 'true' from user where username =?"
+			users-by-username-query="select username, password,'true' from user where username =?"
 			authorities-by-username-query="select username, access_level from user where username =?"/>
 	</security:authentication-provider>
 </security:authentication-manager>

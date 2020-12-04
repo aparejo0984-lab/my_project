@@ -23,19 +23,19 @@
                <li class="d-flex align-items-center">
                   <div class="image"><img src="<c:url value="/resources/img/product/detail-square1.png" />" alt="..." class="img-fluid"></div>
                   <div class="text">
-                     <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
+                     <h5 class="mb-0"> <a href="<%=request.getContextPath() + "/user/blog-post" %>">Blog post name</a></h5>
                   </div>
                </li>
                <li class="d-flex align-items-center">
                   <div class="image"><img src="<c:url value="/resources/img/product/detail-square2.png" />" alt="..." class="img-fluid"></div>
                   <div class="text">
-                     <h5 class="mb-0"> <a href="post.html">Blog post name</a></h5>
+                     <h5 class="mb-0"> <a href="<%=request.getContextPath() + "/user/blog-post" %>">Blog post name</a></h5>
                   </div>
                </li>
                <li class="d-flex align-items-center">
                   <div class="image"><img src="<c:url value="/resources/img/product/detail-square1.png" />" alt="..." class="img-fluid"></div>
                   <div class="text">
-                     <h5 class="mb-0"> <a href="post.html">Very very long blog post name</a></h5>
+                     <h5 class="mb-0"> <a href="<%=request.getContextPath() + "/user/blog-post" %>">Very very long blog post name</a></h5>
                   </div>
                </li>
             </ul>

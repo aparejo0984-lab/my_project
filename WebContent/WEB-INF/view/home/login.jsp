@@ -14,9 +14,11 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="box">
-				<c:if test="${not empty message}">
-					${message}
-				</c:if>
+				 <c:if test="${not empty message}" >
+					<div class="alert alert-${alert}" role="alert">
+						${message}
+					</div>
+				 </c:if>
                 <h2 class="text-uppercase">Login</h2>
                 <p class="lead">Already our customer?</p>
                 <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>

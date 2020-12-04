@@ -8,9 +8,10 @@
       <ul class="nav nav-pills flex-column text-sm">
         <li class="nav-item"><a href="<%=request.getContextPath() + "/admin/product/list" %>" class="nav-link"><i class="fa fa-list"></i> Products</a></li>
         <li class="nav-item"><a href="customer-wishlist.html" class="nav-link"><i class="fa fa-shopping-cart"></i> Orders</a></li>
-        <li class="nav-item"><a href="customer-wishlist.html" class="nav-link"><i class="fa fa-heart"></i> Reviews</a></li>
-        <li class="nav-item"><a href="customer-account.html" class="nav-link"><i class="fa fa-user"></i> My account</a></li>
-        <li class="nav-item"><a href="index.html" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></li>
+        <li class="nav-item"><a href="<%=request.getContextPath() + "/admin/user/list" %>" class="nav-link"><i class="fa fa-users"></i> Users</a></li>
+        <li class="nav-item"><a href="<%=request.getContextPath() + "/admin/reviews/list" %>" class="nav-link"><i class="fa fa-heart"></i> Reviews</a></li>
+        <li class="nav-item"><a href="<%=request.getContextPath() + "/user/account" %>" class="nav-link"><i class="fa fa-user"></i> My account</a></li>
+        <li class="nav-item"><a href="<%=request.getContextPath()%>/user/j_spring_security_logout" class="nav-link"><i class="fa fa-sign-out"></i> Logout</a></li>
       </ul>
     </div>
   </div>

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <%@ include file="../layout/header.jsp" %> 
 <body>
@@ -21,6 +23,11 @@
               </div>
             </div>
           </section>
+		  <c:if test="${not empty message}" >
+			<div class="alert alert-${alert}" role="alert">
+				${message}
+			</div>
+		  </c:if>
           <section class="bar pt-0">
             <div class="row">
               <div class="col-md-12">
@@ -29,43 +36,38 @@
                 </div>
               </div>
               <div class="col-md-8 mx-auto">
-                <form>
+                <form:form modelAttribute="reviews" action='<%=request.getContextPath() + "/shop/review/add" %>' method="POST">
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
-                        <label for="firstname">First Name</label>
-                        <input id="firstname" type="text" class="form-control">
+                        <label for="name">Name</label>
+                        <form:input path="name" class="form-control"></form:input>
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-md-6">
                       <div class="form-group">
-                        <label for="lastname">Last Name</label>
-                        <input id="lastname" type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" type="text" class="form-control">
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                      <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input id="subject" type="text" class="form-control">
+                        <label for="message">Rating</label>
+                        <form:select path="rating" class="form-control">
+					      <option value="5">Excellent</option>
+					      <option value="4">Good</option>
+					      <option value="3">Fair</option>
+					      <option value="2">Poor</option>
+					      <option value="1">Very Poor</option>
+					      <option value="0">No rating</option>
+                        </form:select>
                       </div>
                     </div>
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control"></textarea>
+                        <label for="message">Comments / Suggestion:</label>
+                        <form:textarea path="comment" class="form-control"></form:textarea>
                       </div>
                     </div>
                     <div class="col-sm-12 text-center">
-                      <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> Send message</button>
+                      <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> Send</button>
                     </div>
                   </div>
-                </form>
+                </form:form>
               </div>
             </div>
           </section>

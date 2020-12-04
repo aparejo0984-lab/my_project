@@ -17,7 +17,7 @@ public class PersonController {
 	@Autowired
 	private ApplicationContext context;
 	
-	@RequestMapping(value = { "", "inputPerson" } )
+	@RequestMapping(value = {"inputPerson" } )
 	public String inputPerson(Model model) {
 		model.addAttribute("person", new Person());
 		return "/register";
