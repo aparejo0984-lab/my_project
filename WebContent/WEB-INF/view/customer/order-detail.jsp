@@ -11,70 +11,103 @@
       <div id="content">
         <div class="container">
           <div class="row bar">
-            <div id="customer-order" class="col-lg-9">
-              <p class="lead">Order #1735 was placed on <strong>22/06/2013</strong> and is currently <strong>Being prepared</strong>.</p>
-              <p class="lead text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
-              <div class="box">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th colspan="2" class="border-top-0">Product</th>
-                        <th class="border-top-0">Quantity</th>
-                        <th class="border-top-0">Unit price</th>
-                        <th class="border-top-0">Discount</th>
-                        <th class="border-top-0">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="White Blouse Armani" class="img-fluid"></a></td>
-                        <td><a href="#">White Blouse Armani</a></td>
-                        <td>2</td>
-                        <td>$123.00</td>
-                        <td>$0.00</td>
-                        <td>$246.00</td>
-                      </tr>
-                      <tr>
-                        <td><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="Black Blouse Armani" class="img-fluid"></a></td>
-                        <td><a href="#">Black Blouse Armani</a></td>
-                        <td>1</td>
-                        <td>$200.00</td>
-                        <td>$0.00</td>
-                        <td>$200.00</td>
-                      </tr>
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th colspan="5" class="text-right">Order subtotal</th>
-                        <th>$446.00</th>
-                      </tr>
-                      <tr>
-                        <th colspan="5" class="text-right">Shipping and handling</th>
-                        <th>$10.00</th>
-                      </tr>
-                      <tr>
-                        <th colspan="5" class="text-right">Tax</th>
-                        <th>$0.00</th>
-                      </tr>
-                      <tr>
-                        <th colspan="5" class="text-right">Total</th>
-                        <th>$456.00</th>
-                      </tr>
-                    </tfoot>
-                  </table>
-                </div>
-                <div class="row addresses">
-                  <div class="col-md-6 text-right">
-                    <h3 class="text-uppercase">Invoice address</h3>
-                    <p>John Brown<br>					    13/25 New Avenue<br>					    New Heaven<br>					    45Y 73J<br>					    England<br>					    Great Britain</p>
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <h3 class="text-uppercase">Shipping address</h3>
-                    <p>John Brown<br>					    13/25 New Avenue<br>					    New Heaven<br>					    45Y 73J<br>					    England<br>					    Great Britain</p>
-                  </div>
-                </div>
-              </div>
+            <div id="customer-orders" class="col-md-9">
+				<p class="lead">Order <strong>#${order.invoice}</strong> was placed on <strong>22/06/2013</strong> and is currently <strong>
+						<c:choose>
+						    <c:when test="${order.statusId==1}">
+						    	<span class="badge badge-info">Pending</span>
+						    </c:when>
+						    <c:when test="${order.statusId==2}">
+						    	<span class="badge badge-info">Confirmed</span>
+						    </c:when> 
+						    <c:when test="${order.statusId==3}">
+						    	<span class="badge badge-info">Processing</span>
+						    </c:when> 
+						    <c:when test="${order.statusId==4}">
+						    	<span class="badge badge-info">Delivery</span>
+						    </c:when> 
+						    <c:when test="${order.statusId==5}">
+						    	<span class="badge badge-info">Paid</span>
+						    </c:when> 
+						    <c:when test="${order.statusId==6}">
+						    	<span class="badge badge-info">Finished</span>
+						    </c:when> 
+						    <c:otherwise>
+								<span class="badge badge-danger">Cancelled</span>
+						    </c:otherwise>
+						</c:choose>
+					</strong>.</p>
+				<p class="lead text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/shop/review">contact us</a>, our customer service center is working for you 24/7.</p>
+	              <div class="box">
+	                <div class="table-responsive">
+	                  <table class="table">
+	                    <thead>
+	                      <tr>
+	                        <th colspan="2" class="border-top-0">Product</th>
+	                        <th class="border-top-0">Quantity</th>
+	                        <th class="border-top-0">Unit price</th>
+	                        <th class="border-top-0">Discount</th>
+	                        <th class="border-top-0">Total</th>
+	                      </tr>
+	                    </thead>
+	                    <tbody>
+	                      <tr>
+	                        <td><a href="<%=request.getContextPath()%>/shop/detail/${order.productDetails.code}"><img src="<c:url value="/resources/img/product/cover/product${order.productDetails.code}.png" />" alt="${order.productDetails.name}" class="img-fluid"></a></td>
+	                        <td><a href="<%=request.getContextPath()%>/shop/detail/${order.productDetails.code}">${order.productDetails.name}</a></td>
+	                        <td>${order.quantity}</td>
+	                        <td>P${order.productDetails.price}</td>
+	                        <td>P00.00</td>
+	                        <td>P${order.total}</td>
+	                      </tr>
+	                    </tbody>
+	                    <tfoot>
+	                      <tr>
+	                        <th colspan="5" class="text-right">Order Subtotal</th>
+	                        <th>P${order.total}</th>
+	                      </tr>
+	                      <tr>
+	                        <th colspan="5" class="text-right">Shipping and handling</th>
+	                        <th>P00.00</th>
+	                      </tr>
+	                      <tr>
+	                        <th colspan="5" class="text-right">Total</th>
+	                        <th>P${order.total}</th>
+	                      </tr>
+	                    </tfoot>
+	                  </table>
+	                </div>
+	                <div class="row addresses">
+	                  <div class="col-md-6 text-right">
+	                    <h3 class="text-uppercase">Invoice address</h3>
+	                    <p>
+		                    ${order.userDetails.name}<br>					    
+		                    ${order.userDetails.address}<br>					    
+		                    Contact Number: ${order.userDetails.contactNumber}<br>
+	                    </p>
+	                  </div>
+	                  <div class="col-md-6 text-right">
+	                    <h3 class="text-uppercase">Shipping address</h3>
+	                    <p>
+		                    ${order.userDetails.name}<br>					    
+		                    ${order.userDetails.address}<br>					    
+		                    Contact Number: ${order.userDetails.contactNumber}<br>
+		                    Delivery Option: 
+								<c:choose>
+								    <c:when test="${orders.deliveryOption == 1}">
+								    	Direct delivery
+								    </c:when>
+								    <c:when test="${orders.deliveryOption == 2}">
+								    	PICKUP AT STORE
+								    </c:when>
+								    <c:otherwise>
+								    	Rider service
+								    </c:otherwise>              
+								</c:choose>
+		                    <br>
+	                    </p>
+	                  </div>
+	                </div>
+	              </div>
             </div>
             <div class="col-lg-3 mt-4 mt-lg-0">
 				<!-- CUSTOMER MENU --> 

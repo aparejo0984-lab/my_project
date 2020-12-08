@@ -25,7 +25,30 @@ public class DBStatement {
 	public static final String ADD_POST = "INSERT INTO topics(subject, content,created_by) VALUES(?, ?,?)";
 	public static final String GET_TOPIC = "SELECT * FROM topics WHERE id=?";
 	
-	public static final String ADD_COMMENT = "INSERT INTO replies(comment, topic_id, reply_by) VALUES(?, ?, ?)";	
+	public static final String ADD_COMMENT = "INSERT INTO replies(comment, topic_id, reply_by) VALUES(?, ?, ?)";
+	
+	public static final String ADD_ORDER = "INSERT INTO orders(user_id, product_code, payment_mode, quantity, total, delivery_option, invoice) VALUES(?, ?, ?, ?, ?, ?,?)";
+	public static final String GET_ALL_ORDERS = "SELECT o.*, u.username, u.name, u.contact_number, u.address, p.code, p.name as product_name, p.price FROM orders o"
+			+ " INNER JOIN user u ON u.id=o.user_id"
+			+ " INNER JOIN product p ON p.code=o.product_code"
+			;
+	public static final String GET_ORDER = "SELECT o.*, u.username, u.name, u.contact_number, u.address, p.code, p.name as product_name, p.price FROM orders o"
+			+ " INNER JOIN user u ON u.id=o.user_id"
+			+ " INNER JOIN product p ON p.code=o.product_code"
+			+ " WHERE o.id = ?"
+			;
+	
+	public static final String GET_MY_ORDER = "SELECT o.*, u.username, u.name, u.contact_number, u.address, p.code, p.name as product_name, p.price FROM orders o"
+			+ " INNER JOIN user u ON u.id=o.user_id"
+			+ " INNER JOIN product p ON p.code=o.product_code"
+			+ " WHERE u.username = ?"
+			;
+	
+	public static final String GET_MY_ORDER_DETAIL = "SELECT o.*, u.username, u.name, u.contact_number, u.address, p.code, p.name as product_name, p.price FROM orders o"
+			+ " INNER JOIN user u ON u.id=o.user_id"
+			+ " INNER JOIN product p ON p.code=o.product_code"
+			+ " WHERE o.id = ? AND  u.username = ?"
+			;
 }
 
 

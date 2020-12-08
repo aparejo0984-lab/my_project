@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="../layout/header.jsp" %> 
@@ -12,11 +14,11 @@
         <div class="container">
           <div class="row bar">
             <div class="col-lg-12">
-              <p class="text-muted lead">You currently have 3 item(s) in your cart.</p>
+              <p class="text-muted lead">You currently have 1 item(s) in your cart.</p>
             </div>
             <div id="basket" class="col-lg-9">
               <div class="box mt-0 pb-0 no-horizontal-padding">
-                <form method="get" action="shop-checkout1.html">
+              	<form:form modelAttribute="orders" action='<%=request.getContextPath() + "/user/checkout/address" %>' method="POST">
                   <div class="table-responsive">
                     <table class="table">
                       <thead>
@@ -30,44 +32,40 @@
                       </thead>
                       <tbody>
                         <tr>
-                          <td><a href="#"><img src="<c:url value="/resources/img/detailsquare.jpg" />" alt="White Blouse Armani" class="img-fluid"></a></td>
-                          <td><a href="#">White Blouse Armani</a></td>
+                          <td><a href="#"><img src="<c:url value="/resources/img/product/cover/product${product.code}.png" />" alt="${product.name}" class="img-fluid"></a></td>
+                          <td><a href="#">${product.name}</a></td>
+                          <form:hidden path="productCode" value="${product.code}"></form:hidden>
                           <td>
-                            <input type="number" value="2" class="form-control">
+                            <input id="numQuantity" type="number" value="1" class="form-control">
+                            <form:hidden path="quantity" value="1"></form:hidden>
                           </td>
-                          <td>$123.00</td>
-                          <td>$0.00</td>
-                          <td>$246.00</td>
-                          <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="#"><img src="<c:url value="/resources/img/basketsquare.jpg" />" alt="Black Blouse Armani" class="img-fluid"></a></td>
-                          <td><a href="#">Black Blouse Armani</a></td>
+                          	
                           <td>
-                            <input type="number" value="1" class="form-control">
+                          	P${product.price}
+                          	<input id="pricePerQuantity" type="hidden" value="${product.price}">
                           </td>
-                          <td>$200.00</td>
-                          <td>$0.00</td>
-                          <td>$200.00</td>
+                          <td>P0.00</td>
+                          <td class="totalPrice">P${product.price}</td>
                           <td><a href="#"><i class="fa fa-trash-o"></i></a></td>
                         </tr>
                       </tbody>
                       <tfoot>
                         <tr>
                           <th colspan="5">Total</th>
-                          <th colspan="2">$446.00</th>
+                          <th colspan="2" class="totalPrice">P${product.price}</th>
+                          <form:hidden path="total" class="totalPrice" value="${product.price}"></form:hidden>
                         </tr>
                       </tfoot>
                     </table>
                   </div>
                   <div class="box-footer d-flex justify-content-between align-items-center">
-                    <div class="left-col"><a href="shop-category.html" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
+                    <div class="left-col"><a href="<%=request.getContextPath() + "/shop" %>" class="btn btn-secondary mt-0"><i class="fa fa-chevron-left"></i> Continue shopping</a></div>
                     <div class="right-col">
                       <button class="btn btn-secondary"><i class="fa fa-refresh"></i> Update cart</button>
                       <button type="submit" class="btn btn-template-outlined">Proceed to checkout <i class="fa fa-chevron-right"></i></button>
                     </div>
                   </div>
-                </form>
+                </form:form>
               </div>
             </div>
             <div class="col-lg-3">
@@ -81,19 +79,19 @@
                     <tbody>
                       <tr>
                         <td>Order subtotal</td>
-                        <th>$446.00</th>
+                        <th class="totalPrice">P${product.price}</th>
                       </tr>
                       <tr>
                         <td>Shipping and handling</td>
-                        <th>$10.00</th>
+                        <th>P0.00</th>
                       </tr>
                       <tr>
                         <td>Tax</td>
-                        <th>$0.00</th>
+                        <th>P0.00</th>
                       </tr>
                       <tr class="total">
                         <td>Total</td>
-                        <th>$456.00</th>
+                        <th class="totalPrice">P${product.price}</th>
                       </tr>
                     </tbody>
                   </table>
@@ -119,5 +117,18 @@
 	<%@ include file="../layout/footer.jsp" %> 
 </div>
 <%@ include file="../layout/jsfiles.jsp" %> 
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#numQuantity").change(updateTotalPrice);
+ });
+ 
+function updateTotalPrice() {
+	var totalPrice = $("#numQuantity").val() * $("#pricePerQuantity").val();
+	$('.totalPrice').html('P' + totalPrice);
+	$('#total').val(totalPrice);
+	$('#quantity').val($("#numQuantity").val());
+}
+
+</script>
 </body>
 </html>

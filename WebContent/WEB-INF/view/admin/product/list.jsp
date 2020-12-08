@@ -56,7 +56,7 @@
 		                        </td>
 		                        <td>
 		                        	<a href="<%=request.getContextPath()%>/admin/product/edit/${product.code}" class="btn btn-template-outlined btn-sm">Edit</a>
-		                        	<a href="<%=request.getContextPath()%>/admin/product/delete/${product.code}" class="btn btn-template-outlined btn-sm">Delete</a>
+		                        	<a href="<%=request.getContextPath()%>/admin/product/delete/${product.code}" class="btn btn-template-outlined btn-sm mt-2">Delete</a>
 		                        </td>
 		                      </tr>
 	                    </c:forEach>

@@ -46,6 +46,9 @@
 	<bean id="repliesJDBC" class="com.project.db.jdbc.RepliesJDBC">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+	<bean id="ordersJDBC" class="com.project.db.jdbc.OrdersJDBC">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
 	<mvc:resources location="/resources/**" mapping="/resources/**"></mvc:resources>
 	<mvc:annotation-driven />
 </beans>

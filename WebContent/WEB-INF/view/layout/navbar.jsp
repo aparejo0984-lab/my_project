@@ -19,7 +19,7 @@
                   <a href="<%=request.getContextPath() + "/shop" %>" class="nav-link" >Products<b class="caret"></b></a>
                </li>
                <li class="nav-item">
-                  <a href="<%=request.getContextPath() + "/shop-review" %>" class="nav-link" >Reviews <b class="caret"></b></a>
+                  <a href="<%=request.getContextPath() + "/shop/review" %>" class="nav-link" >Reviews <b class="caret"></b></a>
                </li>
             </ul>
          </div>

@@ -23,6 +23,7 @@ public class SecurityController {
 	
 	@RequestMapping(value = { "/loginError" } )
 	public String loginError(Model model) {
+		model.addAttribute("alert", "danger");
 		model.addAttribute("message", "Username or password is incorrect.");
 		return "/home/login";
 	}

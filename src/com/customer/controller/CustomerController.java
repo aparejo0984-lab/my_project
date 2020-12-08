@@ -5,10 +5,12 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
+import com.project.db.jdbc.OrdersJDBC;
 import com.project.db.jdbc.UserJDBC;
 import com.project.db.model.User;
 
@@ -86,12 +88,21 @@ public class CustomerController {
 	}
 	
 	@RequestMapping(value = { "user/order/history" } )
-	public String orderHistory() {
+	public String orderHistory(Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		OrdersJDBC ordersJDBC = (OrdersJDBC) context.getBean("ordersJDBC");
+		model.addAttribute("odersList", ordersJDBC.getMyOrders(authentication.getName()));
+			
 		return "/customer/order-history";
 	}
 	
-	@RequestMapping(value = { "user/order/detail" } )
-	public String orderDetail() {
+	@RequestMapping(value = { "user/order/detail/{id}" } )
+	public String orderDetail(@PathVariable("id") int id, Model model) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		
+		OrdersJDBC ordersJDBC = (OrdersJDBC) context.getBean("ordersJDBC");
+		model.addAttribute("order", ordersJDBC.getMyOrderDetail(id, authentication.getName()));
 		return "/customer/order-detail";
 	}
 }
