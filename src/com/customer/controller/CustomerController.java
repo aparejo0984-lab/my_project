@@ -1,5 +1,7 @@
 package com.customer.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -21,9 +23,14 @@ public class CustomerController {
 	private ApplicationContext context;
 	
 	@RequestMapping(value = { "user/account" } )
-	public String account(Model model) {
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+	public String account(Model model, HttpSession session) {
+		String username = ((org.springframework.security.core.userdetails.User) SecurityContextHolder
+				.getContext().getAuthentication().getPrincipal()).getUsername();
 		UserJDBC userJDBC = (UserJDBC) context.getBean("userJDBC");
+		User user = userJDBC.getUser(username);
+		session.setAttribute("user", user);
+		
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		
 		if (authentication != null && authentication.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ROLE_ADMIN"))) {
 			model.addAttribute("isAdmin", true);

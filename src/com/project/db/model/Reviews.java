@@ -10,6 +10,9 @@ public class Reviews {
 	public Reviews() {
 	}
 
+	//user details - secondary db table 
+	private User userDetails;
+	
 	public Reviews(int id, int userId, int rating, String name, String comment) {
 		super();
 		this.id = id;
@@ -58,4 +61,13 @@ public class Reviews {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
+	public User getUserDetails() {
+		return userDetails;
+	}
+
+	public void setUserDetails(User userDetails) {
+		this.userDetails = userDetails;
+	}
+
 }

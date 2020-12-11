@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,8 +39,13 @@
 						    </c:otherwise>
 						</c:choose>
 					</strong>.</p>
-				<p class="lead text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/shop/review">contact us</a>, our customer service center is working for you 24/7.</p>
-	              <div class="box">
+					<p class="lead text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/shop/review">contact us</a>, our customer service center is working for you 24/7.</p>
+					<c:if test="${not empty message}">
+						<div class="alert alert-${alert}" role="alert">
+						  ${message}
+						</div>
+					</c:if>
+	              	<div class="box">
 	                <div class="table-responsive">
 	                  <table class="table">
 	                    <thead>
@@ -79,11 +85,35 @@
 	                </div>
 	                <div class="row addresses">
 	                  <div class="col-md-6 text-right">
-	                    <h3 class="text-uppercase">Invoice address</h3>
+	                    <h3 class="text-uppercase">Invoice Details</h3>
 	                    <p>
 		                    ${order.userDetails.name}<br>					    
 		                    ${order.userDetails.address}<br>					    
 		                    Contact Number: ${order.userDetails.contactNumber}<br>
+		                    Delivery Option: 
+								<c:choose>
+								    <c:when test="${order.deliveryOption == 1}">
+								    	Direct delivery
+								    </c:when>
+								    <c:when test="${order.deliveryOption == 2}">
+								    	PICKUP AT STORE
+								    </c:when>
+								    <c:otherwise>
+								    	Rider service
+								    </c:otherwise>              
+								</c:choose><br>
+							Payment Option:
+								<c:choose>
+								    <c:when test="${order.paymentMode == 1}">
+								    	Cash on Delivery
+								    </c:when>
+								    <c:when test="${order.paymentMode == 2}">
+								    	GCASH
+								    </c:when>
+								    <c:otherwise>
+								    	Bank Transfer
+								    </c:otherwise>              
+								</c:choose>
 	                    </p>
 	                  </div>
 	                  <div class="col-md-6 text-right">
@@ -92,23 +122,32 @@
 		                    ${order.userDetails.name}<br>					    
 		                    ${order.userDetails.address}<br>					    
 		                    Contact Number: ${order.userDetails.contactNumber}<br>
-		                    Delivery Option: 
-								<c:choose>
-								    <c:when test="${orders.deliveryOption == 1}">
-								    	Direct delivery
-								    </c:when>
-								    <c:when test="${orders.deliveryOption == 2}">
-								    	PICKUP AT STORE
-								    </c:when>
-								    <c:otherwise>
-								    	Rider service
-								    </c:otherwise>              
-								</c:choose>
-		                    <br>
 	                    </p>
 	                  </div>
 	                </div>
 	              </div>
+	                <form:form modelAttribute="order" action='<%=request.getContextPath() + "/admin/orders/update" %>' method="POST">
+	                  <div class="row">
+	                    <div class="col-md-6">
+	                      <div class="form-group">
+	                        <label for="message"><strong>Change Status</strong></label>
+	                        <form:select path="statusId" class="form-control" value="${order.statusId}">
+						      <option value="1">Pending</option>
+						      <option value="2">Confirmed</option>
+						      <option value="3">Processing</option>
+						      <option value="4">Delivery</option>
+						      <option value="5">Paid</option>
+						      <option value="6">Finished</option>
+						      <option value="7">Cancelled</option>
+	                        </form:select>
+	                      </div>
+	                    </div>
+	                    <div class="col-md-12 text-left">
+	                    	<form:hidden path="id" class="form-control" readonly="true" value="${order.id}"></form:hidden>
+	                      <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> Save Changes</button>
+	                    </div>
+	                  </div>
+	                </form:form>
             </div>
 			<%@ include file="../leftSidebar.jsp" %> 
           </div>

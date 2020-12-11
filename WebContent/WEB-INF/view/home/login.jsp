@@ -33,7 +33,7 @@
                     <input id="password" type="password" class="form-control" name="j_password" required="true">
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-sign-in"></i>Log in</button>
+                    <button type="submit" class="btn btn-template-outlined"><i class="fa fa-sign-in"></i> Log in</button>
                   </div>
                 </form>
               </div>

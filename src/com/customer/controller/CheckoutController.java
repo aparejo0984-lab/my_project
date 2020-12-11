@@ -3,6 +3,8 @@ package com.customer.controller;
 import java.security.SecureRandom;
 import java.util.Random;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.core.Authentication;
@@ -16,6 +18,7 @@ import com.project.db.jdbc.ProductJDBC;
 import com.project.db.jdbc.OrdersJDBC;
 import com.project.db.jdbc.UserJDBC;
 import com.project.db.model.Orders;
+import com.project.db.model.User;
 
 @Controller
 public class CheckoutController { 
@@ -24,12 +27,15 @@ public class CheckoutController {
 	private ApplicationContext context;
 	
 	@RequestMapping(value = { "user/checkout/address" } )
-	public String address(@ModelAttribute("orders") Orders orders, Model model) {
+	public String address(@ModelAttribute("orders") Orders orders, Model model, HttpSession session) {
 		model.addAttribute("orders", orders);
 		
-		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		UserJDBC userJDBC = (UserJDBC) context.getBean("userJDBC");
-		model.addAttribute("user", userJDBC.getUser(authentication.getName()));
+		UserJDBC userJDBC = (UserJDBC) context.getBean("userJDBC");		
+		String username = ((org.springframework.security.core.userdetails.User) SecurityContextHolder
+				.getContext().getAuthentication().getPrincipal()).getUsername();
+		User user = userJDBC.getUser(username);
+		session.setAttribute("user", user);
+		model.addAttribute("user", user);
 		
 		return "/checkout/address";
 	}
@@ -71,6 +77,8 @@ public class CheckoutController {
 		} else {
 			model.addAttribute("message", "Error during order processing!");
 		}
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		model.addAttribute("odersList", ordersJDBC.getMyOrders(authentication.getName()));
 		
 		return "/customer/order-history";
 	}

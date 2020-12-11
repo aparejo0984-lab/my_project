@@ -34,6 +34,21 @@ public class OrdersController {
 		model.addAttribute("order", ordersJDBC.getOrder(id));
 		return "/admin/order/detail";
 	}
+	
+	@RequestMapping(value = "admin/orders/update")
+	public String updateStatus(@ModelAttribute("order") Orders order, Model model) {
+		OrdersJDBC ordersJDBC = (OrdersJDBC) context.getBean("ordersJDBC");
+		if(ordersJDBC.updateOrder(order)) {
+			model.addAttribute("alert", "success");
+			model.addAttribute("message", "Saving of order is successful!");
+		} else {
+			model.addAttribute("alert", "danger");
+			model.addAttribute("message", "Error during saving of order!");
+		}
+		model.addAttribute("order", ordersJDBC.getOrder(order.getId()));
+		
+		return "/admin/order/detail";
+	}
 }
 
 

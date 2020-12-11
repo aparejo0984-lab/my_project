@@ -24,6 +24,7 @@ public class ReviewsJDBC {
 		try {
 			return jdbcObject.query(DBStatement.GET_ALL_REVIEWS, new ReviewsMapper());
 		} catch (Exception e) {
+			System.out.print(e);
 			return null;
 		}
 	}

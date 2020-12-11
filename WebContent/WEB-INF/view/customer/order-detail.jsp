@@ -109,11 +109,10 @@
 	                </div>
 	              </div>
             </div>
-            <div class="col-lg-3 mt-4 mt-lg-0">
-				<!-- CUSTOMER MENU --> 
+			<!-- CUSTOMER MENU --> 
 				<%@ include file="menu.jsp" %> 
-				<!-- CUSTOMER MENU -->
-            </div>
+			<!-- CUSTOMER MENU -->
+            
           </div>
         </div>
       </div>

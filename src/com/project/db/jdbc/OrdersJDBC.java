@@ -69,4 +69,14 @@ public class OrdersJDBC {
 		}
 	}
 	
+	public boolean updateOrder(Orders orders) {
+		try {
+			jdbcObject.update(DBStatement.UPDATE_ORDER, orders.getStatusId(), orders.getId());
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	
 }

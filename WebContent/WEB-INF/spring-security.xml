@@ -14,8 +14,13 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
  
 <security:http auto-config="true">
 	<security:access-denied-handler error-page="/accessDenied"/>
-	<security:intercept-url pattern="/user/*" access="ROLE_USER, ROLE_ADMIN" />
-	<security:intercept-url pattern="/admin/*" access="ROLE_ADMIN" />
+	<security:intercept-url pattern="/user/checkout/**" access="ROLE_USER,ROLE_ADMIN" />
+	<security:intercept-url pattern="/user/**" access="ROLE_USER,ROLE_ADMIN" />
+	<security:intercept-url pattern="/admin/product/**" access="ROLE_ADMIN" />
+	<security:intercept-url pattern="/admin/reviews/**" access="ROLE_ADMIN" />
+	<security:intercept-url pattern="/admin/user/**" access="ROLE_ADMIN" />
+	<security:intercept-url pattern="/admin/orders/**" access="ROLE_ADMIN" />
+	<security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
 	<security:intercept-url pattern="/login" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 	<security:form-login login-page="/login" default-target-url="/user/account" authentication-failure-url="/loginError"/>
  	<security:logout invalidate-session="true" logout-url="/user/j_spring_security_logout" logout-success-url="/" delete-cookies="JSESSIONID"/>

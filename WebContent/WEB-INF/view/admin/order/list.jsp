@@ -44,23 +44,23 @@
 		                        <td>${orders.total}</td>
 		                        <td>
 									<c:choose>
-									    <c:when test="${orders.statusId=='1'}">
+									    <c:when test="${orders.statusId == 1}">
 									    	<span class="badge badge-info">Pending</span>
 									    </c:when>
-									    <c:when test="${orders.statusId=='2'}">
-									    	<span class="badge badge-info">Confirmed</span>
+									    <c:when test="${orders.statusId == 2}">
+									    	<span class="badge badge-warning">Confirmed</span>
 									    </c:when> 
-									    <c:when test="${orders.statusId=='3'}">
-									    	<span class="badge badge-info">Processing</span>
+									    <c:when test="${orders.statusId == 3}">
+									    	<span class="badge badge-success">Processing</span>
 									    </c:when> 
-									    <c:when test="${orders.statusId=='4'}">
-									    	<span class="badge badge-info">Delivery</span>
+									    <c:when test="${orders.statusId == 4}">
+									    	<span class="badge badge-primary">Delivery</span>
 									    </c:when> 
-									    <c:when test="${orders.statusId=='5'}">
-									    	<span class="badge badge-info">Paid</span>
+									    <c:when test="${orders.statusId == 5}">
+									    	<span class="badge badge-secondary">Paid</span>
 									    </c:when> 
-									    <c:when test="${orders.statusId=='6'}">
-									    	<span class="badge badge-info">Finished</span>
+									    <c:when test="${orders.statusId == 6 }">
+									    	<span class="badge badge-light">Finished</span>
 									    </c:when> 
 									    <c:otherwise>
 											<span class="badge badge-danger">Cancelled</span>

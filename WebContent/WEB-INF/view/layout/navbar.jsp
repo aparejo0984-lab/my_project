@@ -1,3 +1,5 @@
+<%@ page import="com.project.db.model.User" %>
+
 <!-- Navbar Start-->
 <header class="nav-holder make-sticky">
    <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
@@ -23,6 +25,14 @@
                </li>
             </ul>
          </div>
+		<% User user = (User)session.getAttribute("user"); %>
+		<div class="font-weight-bold pull-right ml-3">
+			<% if(user != null) { %>
+				Welcome <%= user.getUsername() %>
+				<a href="<%=request.getContextPath()%>/user/j_spring_security_logout"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+			<% } %>
+		</div>
+		<hr>
          <div id="search" class="collapse clearfix">
             <form role="search" class="navbar-form">
                <div class="input-group">
