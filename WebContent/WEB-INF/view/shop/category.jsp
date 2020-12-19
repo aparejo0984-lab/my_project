@@ -13,7 +13,7 @@
         <div class="container">
           <div class="row bar">
             <div class="col-md-12">
-              <p class="text-muted lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+              <p class="text-muted lead">Be the first to have a bite of the unique, chewy all-black NO food coloring version of the traditional Pinoy kakanin, paired with a sweet Dulce de Leche dip and crispy Toasted Coconut sprinkles.</p>
               <div class="row products products-big">
               <c:forEach items="${productList}" var="product">
                 <div class="col-lg-4 col-md-6">

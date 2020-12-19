@@ -11,6 +11,7 @@
             <c:url value="/resources/img/product/logo-company.png" />
             " alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">J&G - go to homepage</span>
          </a>
+         <% User user = (User)session.getAttribute("user"); %>
          <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
          <div id="navigation" class="navbar-collapse collapse">
             <ul class="nav navbar-nav ml-auto">
@@ -20,12 +21,13 @@
                <li class="nav-item">
                   <a href="<%=request.getContextPath() + "/shop" %>" class="nav-link" >Products<b class="caret"></b></a>
                </li>
+               <% if(user != null) { %>
                <li class="nav-item">
-                  <a href="<%=request.getContextPath() + "/shop/review" %>" class="nav-link" >Reviews <b class="caret"></b></a>
+                  <a href="<%=request.getContextPath() + "/user/review" %>" class="nav-link" >Reviews <b class="caret"></b></a>
                </li>
+               <% } %>
             </ul>
          </div>
-		<% User user = (User)session.getAttribute("user"); %>
 		<div class="font-weight-bold pull-right ml-3">
 			<% if(user != null) { %>
 				Welcome <%= user.getUsername() %>

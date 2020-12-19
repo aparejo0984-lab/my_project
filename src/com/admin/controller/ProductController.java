@@ -36,7 +36,7 @@ public class ProductController {
 	@RequestMapping(value = { "admin/product/add" } )
 	public String add(@ModelAttribute("product") Product product, Model model) {
 		ProductJDBC productJDBC = (ProductJDBC) context.getBean("productJDBC");
-		if(productJDBC.addProduct(product)) {
+		if(productJDBC.addProduct(product, "Insert")) {
 			model.addAttribute("alert", "success");
 			model.addAttribute("message", "Saving of product is successful");
 		} else {
@@ -59,7 +59,7 @@ public class ProductController {
 	public String updateProduct(@ModelAttribute("product") Product product, Model model) {
   	    ProductJDBC productJDBC = (ProductJDBC) context.getBean("productJDBC");
   	   model.addAttribute("code", product.getCode());
-		if(productJDBC.updateProduct(product)) {
+		if(productJDBC.updateProduct(product, "Update")) {
 			model.addAttribute("alert", "success");
 			model.addAttribute("message", "Saving of product is successful");
 		} else {
@@ -73,8 +73,9 @@ public class ProductController {
 	@RequestMapping(value = "admin/product/delete/{code}")
 	public String deleteProduct(@PathVariable("code") int code, Model model) {
 		ProductJDBC productJDBC = (ProductJDBC) context.getBean("productJDBC");
+		Product product = productJDBC.getProduct(code);
 		
-		if(productJDBC.deleteProduct(code)) {
+		if(productJDBC.updateProduct(product,"Delete")) {
 			model.addAttribute("alert", "success");
 			model.addAttribute("message", "Deleting of product is successful");
 		} else {

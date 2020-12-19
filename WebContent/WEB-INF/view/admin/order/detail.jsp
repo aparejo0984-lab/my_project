@@ -39,7 +39,7 @@
 						    </c:otherwise>
 						</c:choose>
 					</strong>.</p>
-					<p class="lead text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/shop/review">contact us</a>, our customer service center is working for you 24/7.</p>
+					<p class="lead text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/user/review">contact us</a>, our customer service center is working for you 24/7.</p>
 					<c:if test="${not empty message}">
 						<div class="alert alert-${alert}" role="alert">
 						  ${message}
@@ -138,7 +138,9 @@
 						      <option value="4">Delivery</option>
 						      <option value="5">Paid</option>
 						      <option value="6">Finished</option>
-						      <option value="7">Cancelled</option>
+							  <c:if test="${order.statusId == 1}" >
+							  	<option value="7">Cancelled</option>
+							 </c:if>
 	                        </form:select>
 	                      </div>
 	                    </div>

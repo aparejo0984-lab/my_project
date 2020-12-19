@@ -18,7 +18,6 @@
           <div class="row bar">
             <div id="customer-account" class="col-lg-9 clearfix">
               <p class="lead">Change your personal details or your password here.</p>
-              <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
 			  <c:if test="${not empty passwordMsg}" >
 				<div class="alert alert-${alert}" role="alert">
 					${passwordMsg}

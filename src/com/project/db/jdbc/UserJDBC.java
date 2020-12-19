@@ -36,20 +36,6 @@ public class UserJDBC {
 		}
 	}
 	
-	public boolean updateUser(User user) {
-		try {
-			jdbcObject.update(
-					DBStatement.UPDATE_USER, 
-					user.getName(), 
-					user.getAddress(), 
-					user.getContactNumber(),
-					user.getUsername());
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-	
 	public boolean updatePassword(User user) {
 		try {
 			jdbcObject.update(
@@ -62,12 +48,19 @@ public class UserJDBC {
 		}
 	}
 	
-	public boolean addUser(User user) {
+	public boolean saveUser(User user, String method) {
 		try {
 			jdbcObject.update(
-					DBStatement.ADD_USER, 
+					DBStatement.CRUD_USERS,
+					method,
+					user.getId(),
+					user.getAccessLevel(),
+					user.getEnabled(),
 					user.getUsername(), 
-					user.getPassword()
+					user.getPassword(),
+					user.getName(),
+					user.getAddress(),
+					user.getContactNumber()
 					);
 			return true;
 		} catch (Exception e) {

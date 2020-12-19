@@ -2,6 +2,8 @@ package com.shop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -13,6 +15,7 @@ import com.project.db.model.Product;
 import com.project.db.model.Orders;
 import com.project.db.jdbc.ProductJDBC;
 import com.project.db.jdbc.ReviewsJDBC;
+import com.project.db.jdbc.UserJDBC;
 
 @Controller
 public class ShopController { 
@@ -41,27 +44,6 @@ public class ShopController {
 		model.addAttribute("orders", new Orders());
 		
 		return "/shop/basket";
-	}
-	
-	@RequestMapping(value = { "shop/review" } )
-	public String review(Model model) {
-		model.addAttribute("reviews", new Reviews());
-		return "/shop/review";
-	}
-	
-	@RequestMapping(value = { "/shop/review/add" } )
-	public String addReview(@ModelAttribute("reviews") Reviews reviews, Model model) {
-		ReviewsJDBC reviewsJDBC = (ReviewsJDBC) context.getBean("reviewsJDBC");
-		if(reviewsJDBC.saveReview(reviews)) {
-			model.addAttribute("alert", "success");
-			model.addAttribute("message", "Your review has been sent");
-		} else {
-			model.addAttribute("alert", "danger");
-			model.addAttribute("message", "Error during sending your review");
-		}
-		
-		model.addAttribute("reviews", new Reviews());
-		return "/shop/review";
 	}
 	
 }

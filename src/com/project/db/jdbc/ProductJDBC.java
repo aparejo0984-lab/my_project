@@ -36,40 +36,33 @@ public class ProductJDBC {
 		}
 	}
 	
-	public boolean updateProduct(Product product) {
+	public boolean updateProduct(Product product, String method) {
 		try {
 			jdbcObject.update(
-					DBStatement.UPDATE_PRODUCT, 
+					DBStatement.CRUD_PRODUCT, 
+					method,
+					product.getCode(),
 					product.getName(), 
 					product.getDescription(), 
 					product.getPrice(), 
-					product.getStatus(),
-					product.getCode());
+					product.getStatus());
 			return true;
 		} catch (Exception e) {
 			return false;
 		}
 	}
 	
-	public boolean addProduct(Product product) {
+	public boolean addProduct(Product product, String method) {
 		try {
 			jdbcObject.update(
-					DBStatement.ADD_PRODUCT, 
+					DBStatement.CRUD_PRODUCT, 
+					method,
 					product.getCode(),
 					product.getName(), 
 					product.getDescription(), 
 					product.getPrice(), 
 					product.getStatus()
 					);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}
-
-	public boolean deleteProduct(int code) {
-		try {
-			jdbcObject.update(DBStatement.DELETE_PRODUCT, code);
 			return true;
 		} catch (Exception e) {
 			return false;

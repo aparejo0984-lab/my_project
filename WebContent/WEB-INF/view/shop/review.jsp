@@ -36,7 +36,7 @@
                 </div>
               </div>
               <div class="col-md-8 mx-auto">
-                <form:form modelAttribute="reviews" action='<%=request.getContextPath() + "/shop/review/add" %>' method="POST">
+                <form:form modelAttribute="reviews" action='<%=request.getContextPath() + "/user/review/add" %>' method="POST">
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="form-group">
@@ -64,6 +64,7 @@
                       </div>
                     </div>
                     <div class="col-sm-12 text-center">
+                      <form:hidden path="userId" class="form-control" value="${user.id}"></form:hidden>
                       <button type="submit" class="btn btn-template-outlined"><i class="fa fa-envelope-o"></i> Send</button>
                     </div>
                   </div>

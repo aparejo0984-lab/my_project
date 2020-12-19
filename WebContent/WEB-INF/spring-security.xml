@@ -15,6 +15,7 @@ http://www.springframework.org/schema/security/spring-security-3.2.xsd">
 <security:http auto-config="true">
 	<security:access-denied-handler error-page="/accessDenied"/>
 	<security:intercept-url pattern="/user/checkout/**" access="ROLE_USER,ROLE_ADMIN" />
+	<security:intercept-url pattern="/user/review/**" access="ROLE_USER,ROLE_ADMIN" />
 	<security:intercept-url pattern="/user/**" access="ROLE_USER,ROLE_ADMIN" />
 	<security:intercept-url pattern="/admin/product/**" access="ROLE_ADMIN" />
 	<security:intercept-url pattern="/admin/reviews/**" access="ROLE_ADMIN" />

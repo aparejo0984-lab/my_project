@@ -4,7 +4,7 @@
       <div class="row">
          <div class="col-lg-3">
             <h4 class="h6">About Us</h4>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+            <p>Never miss your chance to try this mouth-watering Black Kutchinta. Indulge your curiosity!</p>
             <hr>
             <h4 class="h6">Join Our Monthly Newsletter</h4>
             <form>
@@ -44,7 +44,7 @@
          <div class="col-lg-3">
             <h4 class="h6">Contact</h4>
             <p class="text-uppercase"><strong>J&G Company</strong><br>766 Plaridel St<br>Cambaro <br>Mandaue 6014 <br>Cebu <br><strong>Philippines</strong></p>
-            <a href="<%=request.getContextPath()%>/shop-review" class="btn btn-template-main">Go to contact page</a>
+            <a href="<%=request.getContextPath()%>/user/review" class="btn btn-template-main">Go to contact page</a>
             <hr class="d-block d-lg-none">
          </div>
          <div class="col-lg-3">

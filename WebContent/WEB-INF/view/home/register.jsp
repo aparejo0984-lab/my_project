@@ -23,7 +23,7 @@
                 <h2 class="text-uppercase">New account</h2>
                 <p class="lead">Not our registered customer yet?</p>
                 <p>With registration with us, new world of kakanin, fantastic discounts and much more opens to you! The whole process will not take you more than a minute!</p>
-                <p class="text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/shop/review">contact us</a>, our customer service center is working for you 24/7.</p>
+                <p class="text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/user/review">contact us</a>, our customer service center is working for you 24/7.</p>
                 <hr>
                 <form:form modelAttribute="user" action='<%=request.getContextPath() + "/register/add" %>' method="POST">
                   <div class="form-group">

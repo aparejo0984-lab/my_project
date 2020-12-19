@@ -7,17 +7,21 @@ public class User {
 	private String name;
 	private String address;
 	private String contactNumber;
+	private String accessLevel;
+	private int enabled;
 	
 	public User() {
 	}
 
-	public User(String username, String password, String name, String address, String contactNumber) {
+	public User(String username, String password, String name, String address, String contactNumber, String accessLevel, int enabled) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.name = name;
 		this.address = address;
 		this.contactNumber = contactNumber;
+		this.accessLevel = accessLevel;
+		this.enabled = enabled;
 	}
 
 	public int getId() {
@@ -66,5 +70,21 @@ public class User {
 
 	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
+	}
+
+	public String getAccessLevel() {
+		return accessLevel;
+	}
+
+	public void setAccessLevel(String accessLevel) {
+		this.accessLevel = accessLevel;
+	}
+
+	public int getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(int enabled) {
+		this.enabled = enabled;
 	}
 }

@@ -17,6 +17,29 @@ public class OrdersJDBC {
 		this.dataSource = dataSource;
 		this.jdbcObject = new JdbcTemplate(dataSource);
 	}
+	
+	
+	public boolean saveOrder(Orders orders, String method) {
+		try {
+			jdbcObject.update(
+					DBStatement.CRUD_ORDERS, 
+					method,
+					orders.getId(),
+					orders.getProductCode(),
+					orders.getUserId(), 
+					orders.getPaymentMode(),
+					orders.getStatusId(),
+					orders.getDeliveryOption(),
+					orders.getInvoice(),
+					orders.getQuantity(),
+					orders.getTotal()		
+			);
+			return true;
+		} catch (Exception e) {
+			System.out.print(e.getMessage());
+			return false;
+		}
+	}
 
 	public boolean addOrder(Orders orders) {
 		try {

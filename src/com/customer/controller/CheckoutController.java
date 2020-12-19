@@ -69,12 +69,17 @@ public class CheckoutController {
 	@RequestMapping(value = { "user/checkout/order" } )
 	public String order(@ModelAttribute("orders") Orders orders, Model model) {
 		model.addAttribute("orders", orders);
+		
+		orders.setId(99);
 		orders.setInvoice(generateRandomString(6));
+		orders.setStatusId(1); // pending status
 		
 		OrdersJDBC ordersJDBC = (OrdersJDBC) context.getBean("ordersJDBC");
-		if(ordersJDBC.addOrder(orders)) {
+		if(ordersJDBC.saveOrder(orders, "Insert")) {
+			model.addAttribute("alert", "success");
 			model.addAttribute("message", "Order has been sent!");
 		} else {
+			model.addAttribute("alert", "danger");
 			model.addAttribute("message", "Error during order processing!");
 		}
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

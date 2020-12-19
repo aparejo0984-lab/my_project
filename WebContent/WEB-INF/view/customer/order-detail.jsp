@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@ include file="../layout/header.jsp" %> 
@@ -12,6 +14,11 @@
         <div class="container">
           <div class="row bar">
             <div id="customer-orders" class="col-md-9">
+				<c:if test="${not empty message}">
+					<div class="alert alert-${alert}" role="alert">
+						${message}
+					</div>
+				</c:if>
 				<p class="lead">Order <strong>#${order.invoice}</strong> was placed on <strong>22/06/2013</strong> and is currently <strong>
 						<c:choose>
 						    <c:when test="${order.statusId==1}">
@@ -37,7 +44,7 @@
 						    </c:otherwise>
 						</c:choose>
 					</strong>.</p>
-				<p class="lead text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/shop/review">contact us</a>, our customer service center is working for you 24/7.</p>
+				<p class="lead text-muted">If you have any questions, please feel free to <a href="<%=request.getContextPath()%>/user/review">contact us</a>, our customer service center is working for you 24/7.</p>
 	              <div class="box">
 	                <div class="table-responsive">
 	                  <table class="table">
@@ -108,6 +115,9 @@
 	                  </div>
 	                </div>
 	              </div>
+				  <c:if test="${order.statusId == 1}" >
+				  	<a class="btn btn-template-outlined" href="<%=request.getContextPath()%>/user/order/cancel/${order.id}" role="button"><i class="fa fa-envelope-o"></i> Cancel Order</a>
+				 </c:if>
             </div>
 			<!-- CUSTOMER MENU --> 
 				<%@ include file="menu.jsp" %> 

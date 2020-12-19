@@ -49,9 +49,13 @@ public class DBStatement {
 			+ " INNER JOIN product p ON p.code=o.product_code"
 			+ " WHERE o.id = ? AND  u.username = ?"
 			;
-	
 	public static final String UPDATE_ORDER = "UPDATE orders SET status_id=? WHERE id=?";
 	
+	//stored procedures 
+	public static final String CRUD_PRODUCT = "call ProductMasterCRUD (?, ?, ?, ?, ?, ?, @RESULT)";
+	public static final String CRUD_ORDERS = "call OrdersCRUD(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, @RESULT)";
+	public static final String CRUD_REVIEWS = "call ReviewInsert(?, ?, ?, ?, @result)";
+	public static final String CRUD_USERS = "call UserMasterCRUD(?, ?, ?, ?, ?, ?, ?, ?, ?, @result)";
 }
 
 

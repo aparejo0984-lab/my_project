@@ -31,7 +31,13 @@ public class ReviewsJDBC {
 	
 	public boolean saveReview(Reviews reviews) {
 		try {
-			jdbcObject.update(DBStatement.ADD_REVIEW, reviews.getRating(), reviews.getName(), reviews.getComment());
+			jdbcObject.update(
+					DBStatement.CRUD_REVIEWS, 
+					reviews.getUserId(),
+					reviews.getRating(), 
+					reviews.getName(), 
+					reviews.getComment()
+					);
 			return true;
 		} catch (Exception e) {
 			return false;

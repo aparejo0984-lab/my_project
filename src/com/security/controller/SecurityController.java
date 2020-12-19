@@ -47,12 +47,16 @@ public class SecurityController {
 			model.addAttribute("alert", "danger");
 			model.addAttribute("message", "Username already exists");
 		} else {
-			if(userJDBC.addUser(user)) {
+			user.setAccessLevel("ROLE_USER");
+			user.setEnabled(1);
+			user.setId(99); //dummy number for stored procedures to work
+			
+			if(userJDBC.saveUser(user, "Insert")) {
 				model.addAttribute("alert", "success");
 				model.addAttribute("message", "Your account is successfully created. Login to your acount");
 			} else {
 				model.addAttribute("alert", "danger");
-				model.addAttribute("message", "Error during sending your review");
+				model.addAttribute("message", "Error creating user");
 			}
 		}
 		return "/home/register";

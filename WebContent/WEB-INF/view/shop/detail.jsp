@@ -15,7 +15,9 @@
           <div class="row bar">
             <!-- LEFT COLUMN -->
             <div class="col-lg-12">
-              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <p class="lead">BLACK KUTCHINTA is now in Cebu!
+Be the first to have a bite of the unique, chewy all-black NO food coloring version of the traditional Pinoy kakanin, paired with a sweet Dulce de Leche dip and crispy Toasted Coconut sprinkles.
+CURIOUS KA? TRY NA!</p>
               <p class="goToDescription"><a href="#details" class="scroll-to text-uppercase">Scroll to product details</a></p>
               <div id="productMain" class="row">
                 <div class="col-sm-6">
@@ -52,7 +54,7 @@
                 <h4>Product details</h4>
 				<p>${product.description}</p>
                 <blockquote class="blockquote">
-                  <p class="mb-0"><em>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</em></p>
+                  <p class="mb-0"><em>Grab your BLACK KUTCHINTA with Dulce de Leche dip and crispy Toasted Coconut sprinkles - the perfect ending to any meal. Come on, give in. Order now!</em></p>
                 </blockquote>
               </div>
               <div id="product-social" class="box social text-center mb-5 mt-5">
